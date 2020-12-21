@@ -1,5 +1,4 @@
 import './App.css';
-import Menu from './Menu';
 
 import './bootstrap.css'
 
