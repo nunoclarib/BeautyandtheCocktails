@@ -4,14 +4,18 @@ import {Link} from 'react-router-dom';
 import './bootstrap.css'
 import MakeupList from './MakeupList'
 
+import firebase_app from "./config/firebase"
+import {Button} from "react-bootstrap"
+
 class Makeup extends Component {
     constructor(props){
         super (props)
         this.state={
             makeup: "",
             pesquisa: ""
-        }        
+        }         
     }
+
 /*
     async componentDidMount(){
     
@@ -22,7 +26,8 @@ class Makeup extends Component {
         
     }
     */
-   componentDidMount(){
+   
+    componentDidMount(){
     const api = `http://makeup-api.herokuapp.com/api/v1/products.json?product_type=lipstick` // pesquisar lipsticks por marca
     let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     
@@ -69,10 +74,9 @@ class Makeup extends Component {
    }
 
     render(){
-
         return (
             <div className="Makeup text-center">
-
+                
                 <input type="text" placeholder="Marca..." onChange={this.handlerSearch} value={this.state.pesquisa}/>
 
                 <MakeupList  Listar={this.state.makeup} Search={this.state.pesquisa}/>

@@ -2,7 +2,7 @@ import React from 'react'
 
 const MakeupItem = (props) => {
 
-    const {img,marca,tipo,nome, price, description, link} = props
+    const {img, marca, tipo, nome, price, description, link} = props
 
     return (
         <div>
