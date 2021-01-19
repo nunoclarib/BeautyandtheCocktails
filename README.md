@@ -1,3 +1,3 @@
 
 !! node_modules missing !!
-This project uses -> React Hooks, React Router, Redux (com presist do state), Firebase Authentication (Email e Password) e outras 2 APIs (Makeup e Cocktails APIs)
+This project uses -> React Hooks, React Router, Redux (w/ presist state), Firebase Authentication (Email and Password) e 2 other APIs (Makeup and Cocktails APIs)
