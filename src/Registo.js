@@ -16,7 +16,11 @@ const Registo = () => {
   const [email, setEmail] = useState ("")
   const [password, setPassword] = useState ("")
   const [confirmPass, setConfirmPass] = useState ("")
+
   const [registado, setRegistado] = useState (false)
+
+  const [error, setError] = useState ("")
+  const [errorPass, setErrorPass] = useState ("")
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value)
@@ -43,14 +47,22 @@ const Registo = () => {
           setRegistado(true)
         })
         .catch((error) => {
-          var errorCode = error.code;
+          //var errorCode = error.code;
           var errorMessage = error.message;
           console.log(errorMessage)
+          setError(`Ocorreu um erro no registo. Tenta novamente.`)
         });
+    }
+    else{
+      setErrorPass(`As passwords não correspondem!`)
     }
   };
 
     return (
+      <section>
+      <div class="hero-wrap js-fullheight">
+      <div class="overlay"></div>
+      <div class="container">
       <div className="text-center">
         
         {registado === true ? (<Redirect to="/"/>) : (<div></div>)}
@@ -99,6 +111,19 @@ const Registo = () => {
                       value={confirmPass}
                       onChange={handleChangeConfirmPassword}
                     ></Form.Control>
+                    {(error!=="") ? (<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                            {error}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>) :(<div></div>)}
+                    {(errorPass!=="") ? (<div class="alert alert-warning alert-dismissible fade show mt-3" role="alert">
+                            {errorPass}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>) :(<div></div>)}
+
                   </Form.Group>
 
                   <Button type="submit" className="w-100" onClick={handleSubmit}>
@@ -106,17 +131,20 @@ const Registo = () => {
                   </Button>
                 </Form>
               </Card.Body>
-            </Card>
-            <div className="w-100 text-center mt-2">
+              <div className="w-100 text-center mt-2">
               Já tem uma conta?
               <p>
                 <Link to="/login">Clica Aqui</Link>
               </p>
             </div>
+            </Card>
           </div>
         </div>
       </Container>
     </div>
+    </div>
+    </div>
+    </section>
     );
   }
 export default Registo;

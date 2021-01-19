@@ -2,23 +2,24 @@ import React, {Component} from 'react';
 import './App.css';
 import {Link} from 'react-router-dom';
 import './bootstrap.css'
-import MakeupList from './MakeupList'
+import CocktailsList from './CocktailsList'
 
+import firebase_app from "./config/firebase"
+import {Button} from "react-bootstrap"
 
-class Makeup extends Component {
+class Cocktails extends Component {
     constructor(props){
         super (props)
         this.state={
-            makeup: "",
+            cocktails: "",
             pesquisa: ""
         }         
     }
    
     componentDidMount(){
-
     window.scrollTo(0, 0)
     
-    const api = `https://makeup-api.herokuapp.com/api/v1/products.json?product_type=${this.props.location.state.produto_api}` 
+    const api = `https://www.thecocktaildb.com/api/json/v1/1/search.php?s=${this.props.location.state.produto_api}` 
     
     let XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
     
@@ -32,9 +33,9 @@ class Makeup extends Component {
                 if (request.status === 200) {
 
                     let data = JSON.parse(request.responseText)
-                    this.setState({makeup: data})
+                    this.setState({cocktails: data.drinks})
                     
-                    console.log(this.state.makeup)
+                    console.log(this.state.cocktails)
 
                     fullfill('Sucesso na ligação à API!')
                 } else {
@@ -65,7 +66,7 @@ class Makeup extends Component {
    }
 
     render(){
-       console.log(this.state.makeup)
+       console.log(this.state.cocktails)
         return (
             <div>
 
@@ -99,7 +100,7 @@ class Makeup extends Component {
            
     <section className=" bg-light" style={{marginTop: '800px'}}>
     <div className="container">
-    <MakeupList Listar={this.state.makeup} Search={this.state.pesquisa}/>
+    <CocktailsList Cocktails={this.state.cocktails} Pesquisa={this.state.pesquisa}/>
     </div>
     </section>    
 
@@ -108,5 +109,5 @@ class Makeup extends Component {
     }
 }
 
-export default Makeup;
+export default Cocktails;
 

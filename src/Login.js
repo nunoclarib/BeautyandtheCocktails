@@ -15,6 +15,7 @@ const Login = () => {
 
   const [email, setEmail] = useState ("")
   const [password, setPassword] = useState ("")
+  const [error, setError] = useState ("")
 
   const handleChangeEmail = (e) => {
     setEmail(e.target.value)
@@ -26,7 +27,7 @@ const Login = () => {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault(); //prevents reload
+    e.preventDefault(); 
     firebase_app
       .auth()
       .signInWithEmailAndPassword(email, password)
@@ -35,12 +36,19 @@ const Login = () => {
         console.log("Signed In");
       })
       .catch((error) => {
-        var errorCode = error.code;
+        //var errorCode = error.code;
         var errorMessage = error.message;
         console.log(errorMessage);
+
+        setError(`Ocorreu um erro no login.
+        Tenta novamente`)
       });
   };
     return (
+      <section>
+      <div class="hero-wrap js-fullheight">
+      <div class="overlay"></div>
+      <div class="container">
       <div className="text-center">
         <Container
           className="d-flex align-items-center justify-content-center"
@@ -74,6 +82,14 @@ const Login = () => {
                         value={password}
                         onChange={handleChangePassword}
                       ></Form.Control>
+
+                      {(error!=="") ? (<div class="alert alert-danger alert-dismissible fade show mt-3" role="alert">
+                            {error}
+                            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                    </div>) :(<div></div>)}
+        
                     </Form.Group>
 
                       <Button
@@ -85,17 +101,21 @@ const Login = () => {
                       </Button>
                   </Form>
                 </Card.Body>
-              </Card>
-              <div className="w-100 text-center mt-2">
+                <div className="w-100 text-center mt-2" >
                 Ainda não tem uma conta?
                 <p>
                   <Link to="/registo">Regista-te</Link>
                 </p>
               </div>
+              </Card>
+              
             </div>
           </div>
         </Container>
       </div>
+      </div>
+      </div>
+      </section>
     );
   }
 
