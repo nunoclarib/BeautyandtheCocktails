@@ -33,16 +33,19 @@ const Menu = () => {
 
          <nav class="navbar navbar-expand-lg navbar-light ftco_navbar ftco-navbar-light" id="ftco-navbar">
                      <div class="container">
-                       <a class="navbar-brand"> <Link to="/"><img src={foto} alt='ola' width='250px'/></Link></a>
+                       <Link className="barra" to="/"><img src={foto} alt='ola' width='50px'/>Beauty and the Cocktails</Link>
                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                          <span class="oi oi-menu"></span> Menu
                        </button>
                  
                        <div class="collapse navbar-collapse" id="ftco-nav">
                          <ul class="navbar-nav ml-auto">
-                         <li className="nav-item"><Link to="/" className="nav-link"> Home </Link> </li>
-                         <li className="nav-item"><Link to="/makeup" className="nav-link"> Make-Up </Link> </li>
-                         <li className="nav-item mr-3"><Link to="/cocktails" className="nav-link"> Cocktails </Link></li>
+                     
+                         <li className="nav-item"><Link to="/MakeUp" className="nav-link"> Make-Up </Link> </li>
+                         <li className="nav-item mr-3"><Link to="/Cocktails" className="nav-link"> Cocktails </Link></li>
+                         <li className="nav-item mr-3"><Link to="/Sobre" className="nav-link"> Sobre nós </Link></li>
+
+
                          {isLogged === false ? (
                 <li className="nav-item cta">
                 <Link to="/login" className="nav-link"><span>Login</span></Link>

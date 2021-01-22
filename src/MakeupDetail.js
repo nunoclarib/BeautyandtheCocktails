@@ -22,13 +22,12 @@ const MakeupDetail = (props) => {
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-6  text-center" data-scrollax=" properties: { translateY: '70%' }">
             <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><Link to="/">Home</Link></span></p>
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><Link to="/makeupLipsticks">Lipsticks</Link></span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{props.location.state.nome}</h1>
             <p
                   class="mb-3 "
-                  data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"
+                  data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" style={{color:'white'}}
                 >
-                 Marca: {props.location.state.marca}
+                 <i>{props.location.state.marca}</i>
                 </p>
            
          </div>
@@ -51,9 +50,9 @@ const MakeupDetail = (props) => {
                   </a>
                 </Link>
               </p>
-              <h1 className="mb-3">{props.location.state.nome.toUpperCase()}</h1>
+              <h1 className="mb-3"  style={{color:'#D9899E'}}>{props.location.state.nome.toUpperCase()}</h1>
 
-              <h4 className="mb-3"> Marca: {props.location.state.marca.toUpperCase()}</h4>
+              <h4 className="mb-3"><i>{props.location.state.marca.toUpperCase()}</i></h4>
               
               { (props.location.state.description !== "") 
               ? (<p>{props.location.state.description}</p>) 
@@ -61,7 +60,7 @@ const MakeupDetail = (props) => {
               
 
               { (props.location.state.colors !== "") 
-              ? (<h5 className="mb-3 mt-5">Cores disponíveis:</h5>) 
+              ? (<h5 className="mb-3 mt-5" style={{color:'#D9899E'}}>Cores disponíveis:</h5>) 
               : (<h5 className="mb-3 mt-5">Cor única igual à da imagem</h5>) }
 
               {cor.map((item) => {
@@ -90,16 +89,14 @@ const MakeupDetail = (props) => {
               </div>
             </div>{" "}
             {/* .col-md-8 */}
-            <div className="col-md-4 sidebar pt-4">
-              <div className="sidebar-box">
+            <div className="col-md-4 sidebar pt-4 mt-5">
                 <p className="text-center">
                   <img
                     src={props.location.state.img}
                     alt=""
-                    className="img-fluid"
+                    className="img-fluid dot"  style={{ width: "350px", height:"350px" }}
                   />
                 </p>
-              </div>
               { (props.location.state.description !== "") 
               ? (<div className="sidebar-box ">
               <h3>
@@ -119,7 +116,7 @@ const MakeupDetail = (props) => {
                 (props.location.state.tags ) 
                 ? (tag.map((item) => {
                   return (
-                    <a className="tag-cloud-link" href="#">
+                    <a className="tag-cloud-link">
                       {item}
                     </a>
                   );
@@ -127,7 +124,7 @@ const MakeupDetail = (props) => {
                 : (<div></div>)
                 }
 { (props.location.state.category ) 
-            ? (<a className="tag-cloud-link" href="#">
+            ? (<a className="tag-cloud-link" >
             {props.location.state.category}
           </a>) 
             : (<div></div>) }

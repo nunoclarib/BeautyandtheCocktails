@@ -69,7 +69,7 @@ const Registo = () => {
 
         <Container
         className="d-flex align-items-center justify-content-center"
-        style={{ minHeight: "100vh" }}
+        style={{ marginTop:'105px' }}
       >
         <div className="w-100" style={{ maxWidth: "400px" }}>
           <div>
@@ -132,7 +132,7 @@ const Registo = () => {
                 </Form>
               </Card.Body>
               <div className="w-100 text-center mt-2">
-              Já tem uma conta?
+              Já tens uma conta?
               <p>
                 <Link to="/login">Clica Aqui</Link>
               </p>
@@ -148,3 +148,4 @@ const Registo = () => {
     );
   }
 export default Registo;
+

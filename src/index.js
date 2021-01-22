@@ -21,6 +21,9 @@ import MakeupProduct from "./MakeupProduct";
 import CocktailsProduct from "./CocktailsProduto";
 import CocktailsSingle from "./CocktailsSingle";
 
+import Sobre from "./Sobre";
+
+
 function saveToLocalStorage(state){
   try{
     const serializedState = JSON.stringify(state)
@@ -87,8 +90,10 @@ ReactDOM.render(
         <Route path="/cocktailRum" exact component={Cocktails} />
         <Route path="/cocktailTequila" exact component={Cocktails} />
         <Route path="/cocktailWine" exact component={Cocktails} />
-        <Route path="/cocktailWine" exact component={Cocktails} />
-        
+        <Route path="/cocktailSangria" exact component={Cocktails} />
+      
+        <Route path="/sobre" exact component={Sobre} />
+
 
         <Route path="/registo" component={Registo} />
         <Route path="/login" component={LoginPage} />

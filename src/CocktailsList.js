@@ -48,7 +48,7 @@ const CocktailsList = (props) => {
                             (<div className="row text-center mb-5">
                             <div className="col-md-12 ">
                             <div className="blog-entry">
-                                <p>Loading</p>
+                            <div className='' style={{ margin:'auto'}} class="loader"></div>
                             </div>
                             </div>
                             </div>)

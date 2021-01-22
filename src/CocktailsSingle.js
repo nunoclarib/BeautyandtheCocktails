@@ -21,7 +21,6 @@ const CocktailsSingle = (props) => {
         <div class="row no-gutters slider-text align-items-center justify-content-center" data-scrollax-parent="true">
           <div class="col-md-6  text-center" data-scrollax=" properties: { translateY: '70%' }">
             <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><Link to="/">Home</Link></span></p>
-            <p class="breadcrumbs" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }"><span class="mr-2"><Link to="/cocktailsMargarita">Margarita</Link></span></p>
             <h1 class="mb-3 bread" data-scrollax="properties: { translateY: '30%', opacity: 1.6 }">{props.location.state.nome}</h1>
             <p
                   class="mb-3 "
@@ -50,36 +49,58 @@ const CocktailsSingle = (props) => {
                   </a>
                 </Link>
               </p>
-              <h1 className="mb-3">{props.location.state.nome}</h1>
+              <h1 className="mb-3" style={{color:'#D9899E'}}>{props.location.state.nome}</h1>
 
-              <h4 className="mb-3"> Tipo: {props.location.state.tipo}</h4>
+              <h4 className="mb-3">{props.location.state.tipo}</h4>
+
+              <h5 className="mb-3 mt-5" style={{color:'#D9899E'}}>Ingredientes</h5>
+
+              {(props.location.state.ingredient1 !== "null")? (
+                <p>-{props.location.state.ingredient1}</p>
+               ):(<div>nao tem</div>)}
+               
+               {(props.location.state.ingredient2 !== "null")? (
+                <p>-{props.location.state.ingredient2}</p>
+               ):(<div></div>)}
+
+               {(props.location.state.ingredient3 !== "null")? (
+                <p>-{props.location.state.ingredient3}</p>
+               ):(<div></div>)}
+
+               {(props.location.state.ingredient4 !== "null")? (
+                <p>-{props.location.state.ingredient4}</p>
+               ):(<div></div>)}
+
+               {(props.location.state.ingredient5 !== "null")? (
+                <p>-{props.location.state.ingredient5}</p>
+               ):(<div></div>)}
+
+               {(props.location.state.ingredient6 !== "null")? (
+                <p>-{props.location.state.ingredient6}</p>
+               ):(<div></div>)}
+             
+               {(props.location.state.ingredient7 !== "null")? (
+                <p>-{props.location.state.ingredient7}</p>
+               ):(<div></div>)}
               
               { (props.location.state.description !== "") 
-              ? (<p>{props.location.state.description}</p>) 
+              ? (<div className='mb-5'><h5 className="mb-3 mt-5" style={{color:'#D9899E'}}>Receita</h5><p>{props.location.state.description}</p></div>) 
               : (<div></div>) }
               
-
-             
-              <div className="text-right mt-4">
-                <p>
-                  <a
-                    href='#'
-                    target="_blank"
-                    className=" btn btn-primary btn-outline-primary py-3 px-5"
-                  >
-                    Comprar Produto
-                  </a>
-                </p>
-              </div>
+              
+              
+              
+            
+                  
             </div>{" "}
             {/* .col-md-8 */}
-            <div className="col-md-4 sidebar pt-4">
+            <div className="col-md-4 sidebar pt-4 mt-4">
               <div className="">
                 <p className="text-center">
                   <img
                     src={props.location.state.img}
                     alt=""
-                    className="img-fluid dot"  style={{ width: "400px" }}
+                    className="img-fluid dot"  style={{width: "350px", height:"350px"}}
                   />
                 </p>
               </div>

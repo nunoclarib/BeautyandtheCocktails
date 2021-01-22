@@ -65,6 +65,10 @@ class Cocktails extends Component {
        }, ()=> console.log(this.state.pesquisa))
    }
 
+   scrollDown = () =>{
+    window.scrollTo(0, 680)
+  }
+
     render(){
        console.log(this.state.cocktails)
         return (
@@ -88,6 +92,14 @@ class Cocktails extends Component {
 
           <input className="btn btn-primary btn-outline-white px-5 py-3 mt-5" type="text" placeholder="Nome..." onChange={this.handlerSearch} value={this.state.pesquisa}/>
         
+          <p data-scrollax="properties: { translateY: '30%', opacity: 1.6 }" onClick={() => this.scrollDown()} className="text-center pt-5">
+                <a
+                  className="dotarrow"
+                >
+                  <i class="arrow down"></i>
+                </a>
+              </p>
+
          </div>
 
 

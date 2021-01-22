@@ -38,12 +38,10 @@ const MakeupList = (props) => {
                                 )}
                             </div>) :
                             (<div className="row text-center mb-5">
-                            <div className="col-md-12 ">
-                            <div className="blog-entry">
+                            <div className="col-md-12" style={{marginBottom:'100px', marginTop:'100px'}}>
                               
-                            <h3>Loading...</h3>
+                            <div className='' style={{ margin:'auto'}} class="loader"></div>
 
-                            </div>
                           </div>
                         </div>)
                              }

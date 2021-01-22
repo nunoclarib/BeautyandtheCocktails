@@ -45,14 +45,13 @@ const Login = () => {
       });
   };
     return (
-      <section>
+      <section className=' pb-0'>
       <div class="hero-wrap js-fullheight">
       <div class="overlay"></div>
       <div class="container">
       <div className="text-center">
         <Container
-          className="d-flex align-items-center justify-content-center"
-          style={{ minHeight: "100vh" }}
+          className="d-flex align-items-center justify-content-center" style={{marginTop:'105px'}}    
         >
           <div className="w-100" style={{ maxWidth: "400px" }}>
             <div className="text-center">
@@ -102,7 +101,7 @@ const Login = () => {
                   </Form>
                 </Card.Body>
                 <div className="w-100 text-center mt-2" >
-                Ainda não tem uma conta?
+                Ainda não tens uma conta?
                 <p>
                   <Link to="/registo">Regista-te</Link>
                 </p>
